@@ -24,7 +24,7 @@ pkgload::load_all()
 
 ## Overview
 
-「全国地方公共団体コード」と国内の行政区画の地図データセットを扱うRパッケージです。
+「全国地方公共団体コード」と国内の行政区域の地図データセットを扱うRパッケージです。
 
 ## Installation
 
@@ -37,7 +37,7 @@ remotes::install_github("paithiov909/jisx0402")
 
 ### municipality
 
-`municipality`は、日本にある行政区画名とその市区町村コードの一覧です。
+`municipality`は、日本にある行政区域名とその市区町村コードの一覧です。
 
 総務省では、都道府県コード（JIS X 0401）と市区町村コード（JIS X 0402）とを組み合わせた数字を[全国地方公共団体コード](https://www.soumu.go.jp/denshijiti/code.html)として定めています（このほかに「一部事務組合等コード」も全国地方公共団体コードに含まれますが、そちらはこのパッケージでは探せません）。
 
@@ -60,6 +60,8 @@ jisx0402::municipality |>
   dplyr::select(muni_code, muni_code_with_cd, name)
 ```
 
+なお、この一覧中には含まれていませんが、行政区域としての都道府県そのものは`city_code`を`000`として同様の方法で表示します。
+
 ### jpprefs
 
 `jpprefs`は都道府県コードの一覧です。英語表記などがほしい場合には`zipangu::jpnprefs`を利用してください。
@@ -78,11 +80,11 @@ jisx0402::jpaddresses
 
 ### jptopography
 
-`jptopography()`は、日本の行政区画（市区町村）の地図データを`sf`オブジェクトとして返す関数です。
+`jptopography()`は、日本の行政区域の地図データを`sf`オブジェクトとして返す関数です。`muni_code`は国土交通省が[行政区域コード](https://nlftp.mlit.go.jp/ksj/gml/codelist/AdminiBoundary_CD.xlsx)として公開しているもので、全国地方公共団体コードと同じ番号になります。
 
 この関数で返されるデータは、スマートニュースが公開している[市区町村・選挙区 地形データ](https://github.com/smartnews-smri/japan-topography)を元に、FlatGeobuf (`.fgb`) ファイルに加工したものです。
 
-元データが「国土交通省 国土数値情報（行政区域）」として公開されているものを簡素化したデータであるため、この関数で返されるデータを利用する際には、国土交通省の指示するクレジット記載が必要になります。詳しくは国土数値情報ダウンロードサイトの利用規約を参照してください。
+元データが「国土数値情報 行政区域データ」として公開されているもの（[第3.0版](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_0.html)）を簡素化したデータであるため、この関数で返されるデータを利用する際には、国土交通省の指示するクレジット記載が必要になります。詳しくは[国土数値情報ダウンロードサイト](https://nlftp.mlit.go.jp/)の利用規約を参照してください。
 
 ```{r tmap}
 northern_tohoku <-
@@ -100,5 +102,10 @@ jisx0402::jptopography("designated") |>
   tmap::tm_polygons() +
   tmap::tm_shape(subset(jptopography("prefecture"), pref_code %in% northern_tohoku)) +
   tmap::tm_borders(col = "red", lty = 2) +
-  tmap::tm_credits("地図データ：「国土交通省 国土数値情報（行政区域）」 https://nlftp.mlit.go.jp/ksj/ （2021年9月28日取得）を加工して作成")
+  tmap::tm_credits(
+    paste("地図データ：「国土数値情報 行政区域データ」（国土交通省）",
+          "https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_0.html",
+          "を加工して作成",
+          sep = "\n")
+  )
 ```

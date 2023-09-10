@@ -1,5 +1,5 @@
 # Read geojson files from 'https://github.com/smartnews-smri/japan-topography'
-# and save as '.gpkg' files.
+# and save as '.fgb' files.
 url <-
   paste0(
     "https://github.com/smartnews-smri/japan-topography/raw/main/data/municipality/geojson",
@@ -16,9 +16,12 @@ dest <-
   purrr::map(~ paste0(., c("/all", "/designated", "/prefecture"), ".fgb")) |>
   unlist()
 
+crs <- sf::st_crs(4326) # WGS84
+# crs <- sf::st_crs(6668) # JGD2011
+
 purrr::walk(seq_len(6), \(x) {
   if (x %in% c(3, 6)) {
-    obj <- sf::read_sf(url[x]) |>
+    obj <- sf::read_sf(url[x], crs = crs) |>
       dplyr::mutate(
         pref_code = jpcity::parse_pref(`N03_001`) |>
           jpcity::pref_code() |>
@@ -27,7 +30,7 @@ purrr::walk(seq_len(6), \(x) {
       ) |>
       dplyr::select(pref_code)
   } else {
-    obj <- sf::read_sf(url[x]) |>
+    obj <- sf::read_sf(url[x], crs = crs) |>
       dplyr::rename(muni_code = `N03_007`) |>
       dplyr::select(muni_code)
   }
