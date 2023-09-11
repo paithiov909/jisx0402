@@ -18,8 +18,8 @@ jpaddresses <-
       "address_name_kana",
       "address_name_en",
       "address_koaza",
-      "longitude",
-      "latitude"
+      "lat",
+      "lng"
     ),
     skip = 1
   ) |>
@@ -28,8 +28,8 @@ jpaddresses <-
     address_name,
     address_name_kana,
     address_name_en,
-    longitude,
-    latitude
+    lat,
+    lng
   ) |>
   dplyr::as_tibble()
 

@@ -110,18 +110,18 @@ jisx0402::jpprefs
 ``` r
 jisx0402::jpaddresses
 #> # A tibble: 277,656 × 6
-#>    muni_code address_name   address_name_kana address_name_en longitude latitude
-#>    <chr>     <chr>          <chr>             <chr>               <dbl>    <dbl>
-#>  1 01101     旭ケ丘一丁目   アサヒガオカ 1    ASAHIGAOKA 1         43.0     141.
-#>  2 01101     旭ケ丘二丁目   アサヒガオカ 2    ASAHIGAOKA 2         43.0     141.
-#>  3 01101     旭ケ丘三丁目   アサヒガオカ 3    ASAHIGAOKA 3         43.0     141.
-#>  4 01101     旭ケ丘四丁目   アサヒガオカ 4    ASAHIGAOKA 4         43.0     141.
-#>  5 01101     旭ケ丘五丁目   アサヒガオカ 5    ASAHIGAOKA 5         43.0     141.
-#>  6 01101     旭ケ丘六丁目   アサヒガオカ 6    ASAHIGAOKA 6         43.0     141.
-#>  7 01101     大通西一丁目   オオドオリニシ 1  ODORINISHI 1         43.1     141.
-#>  8 01101     大通西十丁目   オオドオリニシ 10 ODORINISHI 10        43.1     141.
-#>  9 01101     大通西十一丁目 オオドオリニシ 11 ODORINISHI 11        43.1     141.
-#> 10 01101     大通西十二丁目 オオドオリニシ 12 ODORINISHI 12        43.1     141.
+#>    muni_code address_name   address_name_kana address_name_en   lat   lng
+#>    <chr>     <chr>          <chr>             <chr>           <dbl> <dbl>
+#>  1 01101     旭ケ丘一丁目   アサヒガオカ 1    ASAHIGAOKA 1     43.0  141.
+#>  2 01101     旭ケ丘二丁目   アサヒガオカ 2    ASAHIGAOKA 2     43.0  141.
+#>  3 01101     旭ケ丘三丁目   アサヒガオカ 3    ASAHIGAOKA 3     43.0  141.
+#>  4 01101     旭ケ丘四丁目   アサヒガオカ 4    ASAHIGAOKA 4     43.0  141.
+#>  5 01101     旭ケ丘五丁目   アサヒガオカ 5    ASAHIGAOKA 5     43.0  141.
+#>  6 01101     旭ケ丘六丁目   アサヒガオカ 6    ASAHIGAOKA 6     43.0  141.
+#>  7 01101     大通西一丁目   オオドオリニシ 1  ODORINISHI 1     43.1  141.
+#>  8 01101     大通西十丁目   オオドオリニシ 10 ODORINISHI 10    43.1  141.
+#>  9 01101     大通西十一丁目 オオドオリニシ 11 ODORINISHI 11    43.1  141.
+#> 10 01101     大通西十二丁目 オオドオリニシ 12 ODORINISHI 12    43.1  141.
 #> # ℹ 277,646 more rows
 ```
 
