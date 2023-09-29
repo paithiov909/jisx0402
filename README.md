@@ -7,6 +7,8 @@
 
 <!-- badges: start -->
 
+[![jisx0402 status
+badge](https://paithiov909.r-universe.dev/badges/jisx0402)](https://paithiov909.r-universe.dev/jisx0402)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
@@ -18,7 +20,6 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 ## Installation
 
 ``` r
-# install.packages("jisx0402", repos = c("https://paithiov909.r-universe.dev", "https://cloud.r-project.org"))
 remotes::install_github("paithiov909/jisx0402")
 ```
 
@@ -134,7 +135,7 @@ jisx0402::jpaddresses
 (`.fgb`) ファイルに加工したものです。
 
 元データが「国土数値情報
-行政区域データ」として公開されているもの（[第3.0版](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_0.html)）を簡素化したデータであるため、この関数で返されるデータを利用する際には、国土交通省の指示するクレジット記載が必要になります。詳しくは[国土数値情報ダウンロードサイト](https://nlftp.mlit.go.jp/)の利用規約を参照してください。
+行政区域データ」として公開されているもの（[第3.0版](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_0.html)）を簡素化したデータであるため、この関数で返されるデータを利用する際には、国土交通省の指示するクレジット記載が必要になります。詳しくは[国土数値情報ダウンロードサイト](https://nlftp.mlit.go.jp)の利用規約を参照してください。
 
 ``` r
 northern_tohoku <-
