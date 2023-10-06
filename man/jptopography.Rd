@@ -4,14 +4,17 @@
 \alias{jptopography}
 \title{Topographic data of Japanese municipalities}
 \usage{
-jptopography(type = c("all", "designated", "prefecture"), resolution = 0.1)
+jptopography(
+  type = c("all", "designated", "prefecture"),
+  resolution = c("low", "high")
+)
 }
 \arguments{
 \item{type}{String; One of \code{all}, \code{desiginated}, or \code{prefecture}.}
 
-\item{resolution}{Numeric; If smaller than \code{1},
-returns the 0.1\% desolved data ('s0001').
-Otherwise, returns the 1\% desolved data ('s0010').}
+\item{resolution}{String; One of \code{low} or \code{high}.
+If \code{high}, returns the 1\% dissolved data ('s0010').
+Otherwise, returns the 0.1\% dissolved data ('s0001').}
 }
 \value{
 An \code{sf} object from the 'sf' package.
