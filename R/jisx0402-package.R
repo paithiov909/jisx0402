@@ -1,4 +1,3 @@
-#' Datasets Related to 'JIS X 0402:2020'
 #' @import tibble
 #' @keywords internal
 "_PACKAGE"

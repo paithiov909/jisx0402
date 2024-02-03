@@ -4,7 +4,7 @@
 \name{jisx0402-package}
 \alias{jisx0402}
 \alias{jisx0402-package}
-\title{Datasets Related to 'JIS X 0402:2020'}
+\title{jisx0402: Datasets Related to 'JIS X 0402:2020'}
 \description{
 Provides datasets for handling Japanese municipality code defined in 'JIS X 0402' and 'JIS X 0401'.
 }
