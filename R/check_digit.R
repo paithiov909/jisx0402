@@ -17,7 +17,7 @@ check_digit <- function(code) {
         (11 - (k %% 11)) %% 10
       }
     }) |>
-    unlist() |>
+    unlist(use.names = FALSE) |>
     as.character()
   m
 }
